@@ -1,0 +1,44 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Register</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form #registerForm="ngForm" novalidate>
+        <ion-item>
+            <ion-label floating color="primary">E-mail</ion-label>
+            <ion-input [(ngModel)]="credentials.email" name="email" type="text" #email="ngModel" spellcheck="false" autocapitalize="off" required>
+            </ion-input>
+        </ion-item>
+        <p [hidden]="email.valid || submitted == false" color="danger" padding-left>
+            E-mal é obrigatório
+        </p>
+
+        <ion-item>
+            <ion-label floating color="primary">Password</ion-label>
+            <ion-input [(ngModel)]="credentials.password" name="password" type="password" #password="ngModel" required>
+            </ion-input>
+        </ion-item>
+        <p [hidden]="password.valid || submitted == false" color="danger" padding-left>
+            Password é obrigatório
+        </p>
+
+        <ion-row responsive-sm>
+            <ion-col>
+                <button ion-button (click)="doRegister(registerForm)" type="submit" color="primary" block>Entrar</button>
+            </ion-col>
+        </ion-row>
+
+        <ion-row responsive-sm>
+            <ion-col>
+                <strong>
+            <h4 *ngIf="error?.message" style="color:red">Error:&nbsp;{{ error.message }}</h4>
+            </strong>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>
