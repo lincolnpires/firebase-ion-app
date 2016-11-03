@@ -7,7 +7,7 @@ import firebase from 'firebase'
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
-  currentUser: any;
+  user: any;
   authChecked: boolean = false;
   credentials: {
     email?: string;
@@ -18,15 +18,16 @@ export class HomePage implements OnInit {
     public navCtrl: NavController,
     public ngZone: NgZone
   ) {
+    this.credentials = {};
   }
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(currentUser => {
       this.ngZone.run(() => {
         if (currentUser) {
-          this.currentUser = currentUser;
+          this.user = currentUser;
         } else {
-          this.currentUser = undefined;
+          this.user = undefined;
         }
 
         this.authChecked = true;
