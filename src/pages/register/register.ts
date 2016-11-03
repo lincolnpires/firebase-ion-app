@@ -11,7 +11,11 @@ export class Register {
   public fireAuth: any;
   public userProfile: any;
   submitted = false;
-  credentials: { email?: string, password?: string } = {};
+  credentials: {
+    email?: string,
+    password?: string
+  } = {};
+  error?: { message: string };
 
   constructor(public navCtrl: NavController) {
     this.fireAuth = firebase.auth();
@@ -28,7 +32,6 @@ export class Register {
         }).then(() => {
           this.navCtrl.setRoot(HomePage);
         });
-  
       })
     }, (e) => {
       console.log(e)

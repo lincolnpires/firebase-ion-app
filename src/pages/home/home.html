@@ -7,8 +7,13 @@
 </ion-header>
 
 <ion-content padding>
-	<div *ngIf="currentUser && authChecked">It works!</div>
-	<div *ngIf="!currentUser && authChecked">
+	<div *ngIf="user && authChecked">
+		<img [src]="profilePicture" alt="profilePicture" *ngIf="profilePicture" />
+
+		<button ion-button (click)="updatePicture()" color="primary" block>Tirar Selfie</button>
+		<button ion-button (click)="doLogout()" color="primary" block>Logout</button>
+	</div>
+	<div *ngIf="!user && authChecked">
 
 		<form #loginForm="ngForm">
 			<ion-item>
@@ -22,6 +27,8 @@
 			</ion-item>
 			<button ion-button (click)="doLogin(loginForm)" type="submit">Login</button>
 		</form>
+
+		<button ion-button (click)="register()" type="button">Register instead</button>
 
 	</div>
 </ion-content>
