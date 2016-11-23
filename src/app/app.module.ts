@@ -6,11 +6,11 @@ import { Register } from '../pages/register/register';
 import firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAu5Yp_rhibJfpRpVIfmrQAblUyTlcY-4M",
-  authDomain: "fir-ion-app.firebaseapp.com",
-  databaseURL: "https://fir-ion-app.firebaseio.com",
-  storageBucket: "fir-ion-app.appspot.com",
-  messagingSenderId: "251870675171"
+  apiKey: "abcdefghij_klmnnopqrstuvxyzabcdefg-0h",
+  authDomain: "firebase.firebaseapp.com",
+  databaseURL: "https://firebase.firebaseio.com",
+  storageBucket: "firebase.appspot.com",
+  messagingSenderId: "123456789"
 };
 
 @NgModule({
